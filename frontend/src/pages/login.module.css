@@ -1,0 +1,50 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Cherry+Swash:wght@700&family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Major+Mono+Display&family=Poppins:wght@100&display=swap');
+
+.main{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap: 10px;
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background: rgba(52, 245, 235, 0.3);
+    color: white;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.main>button{
+    background-color: aquamarine;
+}
+
+.hometext{
+    font-family: 'Major Mono Display', monospace;
+    text-align:start;
+    font-size: large;
+    /* font-weight: 700; */
+    color: rgb(252, 249, 249);
+}
+
+.homemain{
+    width: 80%;
+    margin: auto;
+    height: max-content;
+    background: rgba(52, 245, 235, 0.3);
+    backdrop-filter: blur(2px);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 50px;
+    position: relative;
+    animation-name: example;
+    animation-duration: 1s;
+}
+
+@keyframes example {
+    0%   { left:0px; top:200px;}
+    100% { left:0px; top:0px;}
+  }

@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Cherry+Swash:wght@700&family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Poppins:wght@100&display=swap');
+
+
+.link{
+    font-family: 'Barlow', sans-serif;
+}
+.link:hover{
+    text-decoration: underline;
+    
+}
