@@ -14,6 +14,7 @@ import EditButton from './EditButton';
 const Cards = ({el,getData}) => {
     const { isOpen, onToggle } = useDisclosure()
     let localValues = JSON.parse(localStorage.getItem("user"));
+    let localValuestoken = localStorage.getItem("token");
     const [val,setVal] = useState(false);
 
     const getLikes = async()=>{
@@ -21,7 +22,7 @@ const Cards = ({el,getData}) => {
         postIds:el._id,
         authorIds:localValues[0]
       }
-      let res = await axios.post('https://iblog-backend-qamo.onrender.com/blogs/likes',value);
+      let res = await axios.post('https://cute-lime-magpie-hem.cyclic.app/blogs/likes',value,{headers:{Authorization:localValuestoken}});
       // console.log(res);
       if(res.data === "like present in this post"){
         setVal(true);
@@ -36,7 +37,7 @@ const Cards = ({el,getData}) => {
     
 
     const handleDelete = async(id,publicurl)=>{
-        let res = await axios.delete(`https://iblog-backend-qamo.onrender.com/blogs/delete?id=${id}&publicurls=${publicurl}`);
+        let res = await axios.delete(`https://cute-lime-magpie-hem.cyclic.app/blogs/delete?id=${id}&publicurls=${publicurl}`,{headers:{Authorization:localValuestoken}});
 
         console.log(res);
         getData();
@@ -46,7 +47,7 @@ const Cards = ({el,getData}) => {
       let value = {
         authorId:localValues[0]
       }
-      let res = await axios.post(`https://iblog-backend-qamo.onrender.com/blogs/updatelike/${id}`,value);
+      let res = await axios.post(`https://cute-lime-magpie-hem.cyclic.app/blogs/updatelike/${id}`,value,{headers:{Authorization:localValuestoken}});
       console.log(res);
       getLikes();
       getData();

@@ -4,9 +4,9 @@ import { useState } from 'react'
 
 import axios from 'axios';
 
-let localValuestoken = localStorage.getItem("token");
 const EditButton = ({el,getData}) => {
-    const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  let localValuestoken = localStorage.getItem("token");
     
     const [images,setPho] = useState("");
     const [title,settitle] = useState("");
