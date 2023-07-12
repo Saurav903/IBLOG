@@ -13,8 +13,9 @@ const Profile = () => {
   const [profile,setProfile] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure()
   let localValues = JSON.parse(localStorage.getItem("user"));
+  let localValuestoken = localStorage.getItem("token");
   const getData = async()=>{
-    let response = await axios.get(`https://iblog-backend-qamo.onrender.com/blogs/posts`);
+    let response = await axios.get(`https://cute-lime-magpie-hem.cyclic.app/blogs/posts`,{headers:{Authorization:localValuestoken}});
     let data = response.data.filter(el=> el.author._id == localValues[0]);
     setTimeout(()=>{
       setData(data);
@@ -22,7 +23,7 @@ const Profile = () => {
     },1000)
   }
   const getUser = async()=>{
-    let response = await axios.get(`https://iblog-backend-qamo.onrender.com/user/get/${localValues[0]}`);
+    let response = await axios.get(`https://cute-lime-magpie-hem.cyclic.app/user/get/${localValues[0]}`);
     setUser(response.data);
   }
 
@@ -42,7 +43,7 @@ const Profile = () => {
               password:user1.password,
               profile:res.url
               };
-    const respond = await axios.patch(`https://iblog-backend-qamo.onrender.com/user/update/${user1._id}`,value);
+    const respond = await axios.patch(`https://cute-lime-magpie-hem.cyclic.app/user/update/${user1._id}`,value);
     console.log(respond.data);
     getData();
     getUser();

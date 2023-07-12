@@ -13,7 +13,7 @@ const Login = () => {
       email,
       password
     }
-    let response = await axios.post("https://iblog-backend-qamo.onrender.com/user/login",value);
+    let response = await axios.post("https://cute-lime-magpie-hem.cyclic.app/user/login",value);
     console.log(response);
     localStorage.setItem("token",response.data.token);
     let val = [];

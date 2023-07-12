@@ -8,6 +8,7 @@ const CreatePost = ({isOpen,onClose,getData}) => {
     const [category,setcategory] = useState("");
     const [loadin,setLoading] = useState(false);
     let localValues = JSON.parse(localStorage.getItem("user"));
+    let localValuestoken = localStorage.getItem("token");
     const handleClick = ()=>{
         setLoading(true);
         const form = new FormData();
@@ -30,7 +31,7 @@ const CreatePost = ({isOpen,onClose,getData}) => {
                 likes:0,
                 author:`${localValues[0]}`
               }
-              let response = await axios.post('https://iblog-backend-qamo.onrender.com/post',value);
+              let response = await axios.post('https://cute-lime-magpie-hem.cyclic.app/blogs/post',value,{headers:{Authorization:localValuestoken}});
         console.log(response.data);
         onClose();
         getData();

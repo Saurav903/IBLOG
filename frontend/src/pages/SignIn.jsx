@@ -14,7 +14,7 @@ const SignIn = () => {
       password:password,
       profile:""
     }
-    let response = await axios.post("https://iblog-backend-qamo.onrender.com/user/register",value);
+    let response = await axios.post("https://cute-lime-magpie-hem.cyclic.app/user/register",value);
     console.log(response);
     toast({
       title: 'Account created.',

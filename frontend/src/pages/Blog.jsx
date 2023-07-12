@@ -9,16 +9,17 @@ const Blog = () => {
   const [data,setdata] = useState([]);
   
   const { isOpen, onOpen, onClose } = useDisclosure();
+  let localValues = localStorage.getItem("token");
 
   const getData = async()=>{
-    let res =await axios.get(`https://iblog-backend-qamo.onrender.com/blogs/posts`);
+    let res =await axios.get(`https://cute-lime-magpie-hem.cyclic.app/blogs/posts`,{headers:{Authorization:localValues}});
      setdata(res.data.reverse());
   }
 
 
   useEffect(()=>{
     getData();
-  },[])
+  },[]);
 
   console.log(data);
   return (

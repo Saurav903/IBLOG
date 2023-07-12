@@ -4,10 +4,10 @@ import { useState } from 'react'
 
 import axios from 'axios';
 
-
+let localValuestoken = localStorage.getItem("token");
 const EditButton = ({el,getData}) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
-
+    
     const [images,setPho] = useState("");
     const [title,settitle] = useState("");
     const [content,setcontent] = useState("");
@@ -37,7 +37,7 @@ const EditButton = ({el,getData}) => {
               author:el.author,
               comments:el.comments
             };
-              let response = await axios.patch(`https://iblog-backend-qamo.onrender.com/blogs/update/${el._id}`,value);
+              let response = await axios.patch(`https://cute-lime-magpie-hem.cyclic.app/blogs/update/${el._id}`,value,{headers:{Authorization:localValuestoken}});
         console.log(response.data);
         onClose();
         getData();

@@ -8,6 +8,7 @@ const Comment = ({el,getData}) => {
   const [displays,setDisplays] = useState(false);
   const [contents,setcontents] = useState("");
   let localValues = JSON.parse(localStorage.getItem("user"));
+  let localValuestoken = localStorage.getItem("token");
   const handleCommentdisplay = ()=>{
     setDisplays(!displays);
   }
@@ -18,7 +19,7 @@ const Comment = ({el,getData}) => {
       content:contents
     }
 
-    let res= await axios.post(`https://iblog-backend-qamo.onrender.com/blogs/comment`,value);
+    let res= await axios.post(`https://cute-lime-magpie-hem.cyclic.app/blogs/comment`,value,{headers:{Authorization:localValuestoken}});
     setcontents("")
     console.log(res.data);
     getData();
